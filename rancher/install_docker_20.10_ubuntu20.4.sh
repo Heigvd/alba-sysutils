@@ -34,3 +34,11 @@ fi
 
 # Install docker
 curl https://releases.rancher.com/install-docker/20.10.sh | sh
+
+echo "{
+  \"log-driver\": \"json-file\",
+  \"log-opts\": {
+    \"max-size\": \"10m\",
+    \"max-file\": \"4\"
+  }
+}" | sudo tee /etc/docker/daemon.json > /dev/null
